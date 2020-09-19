@@ -24,12 +24,11 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/myToolbar"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                style="@style/TextAppearance.AppCompat.Title"
                 app:layout_collapseMode="pin" />
 
 
@@ -38,23 +37,30 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        >
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/receipe_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/text"/>
+            android:layout_height="match_parent"
+            />
 
 
     </androidx.core.widget.NestedScrollView>
 
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
